@@ -1,24 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t2D-a4-AWM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Barcoder-->
+        <scene sceneID="hcj-MW-7NP">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="HomeViewController" id="X9E-DN-TS3" customClass="HomeViewController" customModule="Barcoder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGV-DJ-WL7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eoe-Nf-5Lz">
+                                <rect key="frame" x="20" y="255.5" width="335" height="156"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount (kn)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtI-76-dot">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="8wE-RS-tSw"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqv-ND-ydC">
+                                        <rect key="frame" x="0.0" y="56" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="63q-vA-V2P"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="go"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-Rt-GdP">
+                                        <rect key="frame" x="0.0" y="112" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="X35-8M-TXn"/>
+                                        </constraints>
+                                        <state key="normal" title="Generate barcode"/>
+                                        <connections>
+                                            <action selector="generateBarcodeAction:" destination="X9E-DN-TS3" eventType="touchUpInside" id="WqC-nF-UO4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eoe-Nf-5Lz" firstAttribute="centerY" secondItem="PGV-DJ-WL7" secondAttribute="centerY" id="13o-gG-xzl"/>
+                            <constraint firstItem="eoe-Nf-5Lz" firstAttribute="leading" secondItem="oZR-Kf-hbY" secondAttribute="leading" constant="20" id="cRW-Zo-rGu"/>
+                            <constraint firstItem="oZR-Kf-hbY" firstAttribute="trailing" secondItem="eoe-Nf-5Lz" secondAttribute="trailing" constant="20" id="ePS-bf-Xes"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oZR-Kf-hbY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Barcoder" id="MH6-23-Ged">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Jbb-hn-ICV">
+                            <connections>
+                                <segue destination="eeG-yI-kv0" kind="presentation" id="Zxg-Ej-ZZU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="GtI-76-dot" id="tcf-mi-xIS"/>
+                        <outlet property="descriptionTextField" destination="mqv-ND-ydC" id="P1a-iW-acC"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sun-9w-JkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="824.79999999999995" y="120.98950524737631"/>
+        </scene>
+        <!--Barcoder-->
+        <scene sceneID="Y6s-OH-6HQ">
+            <objects>
+                <viewController storyboardIdentifier="BarcodeViewController" id="Yk0-cA-PYu" customClass="BarcodeViewController" customModule="Barcoder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="if8-2V-D6K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Meg-Qe-nkT">
+                                <rect key="frame" x="20" y="266.5" width="335" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Meg-Qe-nkT" secondAttribute="height" multiplier="15:6" id="t9Q-jC-WoP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JhD-v0-bh3" firstAttribute="trailing" secondItem="Meg-Qe-nkT" secondAttribute="trailing" constant="20" id="Bfw-gi-1XA"/>
+                            <constraint firstItem="Meg-Qe-nkT" firstAttribute="centerY" secondItem="if8-2V-D6K" secondAttribute="centerY" id="bgR-aT-AgV"/>
+                            <constraint firstItem="Meg-Qe-nkT" firstAttribute="leading" secondItem="JhD-v0-bh3" secondAttribute="leading" constant="20" id="qgm-2U-jRM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JhD-v0-bh3"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Barcoder" id="uMm-gg-m8G">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="pwS-dL-8DR">
+                            <connections>
+                                <action selector="shareAction:" destination="Yk0-cA-PYu" id="Q0T-iB-DXu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="barcodeImageView" destination="Meg-Qe-nkT" id="zEB-Mf-IoR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zg-uI-oQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="793"/>
+        </scene>
+        <!--Podaci o računu-->
+        <scene sceneID="JBj-kD-0YB">
+            <objects>
+                <viewController storyboardIdentifier="AccountDetailsViewController" id="js9-vQ-73w" customClass="AccountDetailsViewController" customModule="Barcoder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IPq-6i-qtk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="TeI-ds-juL">
+                                <rect key="frame" x="20" y="84" width="335" height="401"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valuta (HRK)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zua-lB-59J">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2B9-oe-bxh"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tvoje ime i prezime" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-cJ-VFB">
+                                        <rect key="frame" x="0.0" y="51" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="jDx-o1-l8H"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adresa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7T6-8s-Vea">
+                                        <rect key="frame" x="0.0" y="102" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="NoM-76-62D"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Poštanski broj i mjesto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fl-Oa-491">
+                                        <rect key="frame" x="0.0" y="153" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="uh7-gx-sxd"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IBAN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hue-a0-Jke">
+                                        <rect key="frame" x="0.0" y="204" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="KfV-Fu-ppc"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1m-7a-aRC">
+                                        <rect key="frame" x="0.0" y="255" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2Bs-d1-xXe"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Poziv na broj" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fwo-5U-LvN">
+                                        <rect key="frame" x="0.0" y="306" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2df-0S-xCD"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Šifra namjene" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEE-Y3-3gu">
+                                        <rect key="frame" x="0.0" y="357" width="335" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="no9-qG-iTF"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TeI-ds-juL" firstAttribute="top" secondItem="mUJ-xp-6na" secondAttribute="top" constant="20" id="kdJ-y4-1rI"/>
+                            <constraint firstItem="mUJ-xp-6na" firstAttribute="trailing" secondItem="TeI-ds-juL" secondAttribute="trailing" constant="20" id="pI6-0M-PrD"/>
+                            <constraint firstItem="TeI-ds-juL" firstAttribute="leading" secondItem="mUJ-xp-6na" secondAttribute="leading" constant="20" id="xCf-zZ-NmO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mUJ-xp-6na"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Podaci o računu" id="Zj2-NG-uti">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eV1-Oe-jmS">
+                            <connections>
+                                <action selector="cancelAction:" destination="js9-vQ-73w" id="o2T-Jq-TfR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tAq-q3-b4W">
+                            <connections>
+                                <action selector="saveAction:" destination="js9-vQ-73w" id="qep-1y-e6N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="7T6-8s-Vea" id="a5w-Oq-lfa"/>
+                        <outlet property="cityTextField" destination="1fl-Oa-491" id="63x-2L-2dx"/>
+                        <outlet property="currencyTextField" destination="zua-lB-59J" id="MYc-MK-SqS"/>
+                        <outlet property="iban" destination="Hue-a0-Jke" id="9CZ-OU-tDW"/>
+                        <outlet property="modelTextField" destination="B1m-7a-aRC" id="yga-a2-X6H"/>
+                        <outlet property="nameTextField" destination="PCg-cJ-VFB" id="etn-CR-Ui0"/>
+                        <outlet property="paymentSthTextField" destination="FEE-Y3-3gu" id="SeK-dM-0Qa"/>
+                        <outlet property="referenceNumberTextField" destination="Fwo-5U-LvN" id="qgg-cW-LFY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNL-JE-J2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2920.8000000000002" y="120.98950524737631"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dsh-S2-7fk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t2D-a4-AWM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I2Y-pd-Jv6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X9E-DN-TS3" kind="relationship" relationship="rootViewController" id="nuD-AR-fXO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlV-UO-hDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.40000000000001" y="120.98950524737631"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fd8-zD-uWb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeG-yI-kv0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUI-3G-Tya">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="js9-vQ-73w" kind="relationship" relationship="rootViewController" id="4Wa-yd-Vfb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKB-eP-StS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981.5999999999999" y="120.98950524737631"/>
         </scene>
     </scenes>
 </document>

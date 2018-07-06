@@ -16,6 +16,7 @@ class TextFieldTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         textField.isEnabled = false
+        textField.returnKeyType = .next
     }
     
     func setup(with item: Item) {

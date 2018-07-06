@@ -90,6 +90,7 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        currentIndexPath = indexPath
         
         let selectedItem = items[indexPath.row]
         switch selectedItem.type {
@@ -125,7 +126,20 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let currentIndexPath = currentIndexPath else { return }
+        guard
+            let currentIndexPath = currentIndexPath,
+            currentIndexPath.row < items.count - 1,
+            items[currentIndexPath.row + 1].type == .textField
+            else {
+                view.endEditing(true)
+                return false
+        }
         
+        let nextIndex = currentIndexPath.row + 1
+        let nextIndexPath = IndexPath(row: nextIndex, section: 0)
+        let nextCell = tableView.cellForRow(at: nextIndexPath) as! TextFieldTableViewCell
+        nextCell.beginInput(with: self)
+        self.currentIndexPath = nextIndexPath
+        return true
     }
 }

@@ -107,11 +107,11 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PODACI O VLASNIKU RAČUNA"
+        return "PODACI O VLASNIKU BANKOVNOG RAČUNA"
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "Barkod na uplatnici sadržavati će upisane podatke."
+        return "Barkod na uplatnici sadržavati će upisane podatke. Skeniranjem barkoda bankovnom aplikacijom, popuniti će se podaci o plaćanju."
     }
 }
 

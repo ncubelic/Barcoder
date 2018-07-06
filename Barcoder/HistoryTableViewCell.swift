@@ -18,4 +18,8 @@ class HistoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    func setup(with barcodeData: BarcodeData) {
+        barcodeDescriptionLabel.text = barcodeData.description
+        amountLabel.text = barcodeData.amount
+    }
 }

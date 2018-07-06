@@ -14,6 +14,8 @@
 		9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267620EF925A00426493 /* LabelTableViewCell.swift */; };
 		9328267B20EF961E00426493 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9328267920EF961E00426493 /* TextFieldTableViewCell.xib */; };
 		9328267C20EF961E00426493 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */; };
+		93522AA820EFAA6D00C11CB7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93522AA720EFAA6D00C11CB7 /* GradientView.swift */; };
+		93522AAA20EFB32400C11CB7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93522AA920EFB32400C11CB7 /* HistoryViewController.swift */; };
 		93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AB320B8209D00D96BBD /* AppDelegate.swift */; };
 		93DD4AB920B8209D00D96BBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DD4AB720B8209D00D96BBD /* Main.storyboard */; };
 		93DD4ABB20B8209D00D96BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DD4ABA20B8209D00D96BBD /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		9328267620EF925A00426493 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		9328267920EF961E00426493 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		93522AA720EFAA6D00C11CB7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		93522AA920EFB32400C11CB7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		93DD4AB020B8209D00D96BBD /* Barcoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barcoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DD4AB320B8209D00D96BBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DD4AB820B8209D00D96BBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				93DD4AE820B8263500D96BBD /* Account.swift */,
 				93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */,
 				9328266A20EF883400426493 /* HistoryTableViewCell.swift */,
+				93522AA920EFB32400C11CB7 /* HistoryViewController.swift */,
+				93522AA720EFAA6D00C11CB7 /* GradientView.swift */,
 				9328266E20EF91FA00426493 /* Settings */,
 				93DD4AE120B820A700D96BBD /* Supporting Files */,
 			);
@@ -310,6 +316,8 @@
 			files = (
 				93DD4AEB20B82A0100D96BBD /* BarcodeData.swift in Sources */,
 				93DD4AE920B8263500D96BBD /* Account.swift in Sources */,
+				93522AA820EFAA6D00C11CB7 /* GradientView.swift in Sources */,
+				93522AAA20EFB32400C11CB7 /* HistoryViewController.swift in Sources */,
 				9328266B20EF883400426493 /* HistoryTableViewCell.swift in Sources */,
 				93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */,
 				93DD4AE720B8260600D96BBD /* BarcodeViewController.swift in Sources */,

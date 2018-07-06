@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9328266920EF84D100426493 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9328266820EF84D100426493 /* Colors.xcassets */; };
+		9328266B20EF883400426493 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328266A20EF883400426493 /* HistoryTableViewCell.swift */; };
+		9328266D20EF8CB100426493 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328266C20EF8CB100426493 /* SettingsViewController.swift */; };
+		9328267720EF925A00426493 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9328267520EF925A00426493 /* LabelTableViewCell.xib */; };
+		9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267620EF925A00426493 /* LabelTableViewCell.swift */; };
+		9328267B20EF961E00426493 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9328267920EF961E00426493 /* TextFieldTableViewCell.xib */; };
+		9328267C20EF961E00426493 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */; };
 		93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AB320B8209D00D96BBD /* AppDelegate.swift */; };
 		93DD4AB920B8209D00D96BBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DD4AB720B8209D00D96BBD /* Main.storyboard */; };
 		93DD4ABB20B8209D00D96BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DD4ABA20B8209D00D96BBD /* Assets.xcassets */; };
@@ -38,6 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9328266820EF84D100426493 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9328266A20EF883400426493 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		9328266C20EF8CB100426493 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9328267520EF925A00426493 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
+		9328267620EF925A00426493 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		9328267920EF961E00426493 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		93DD4AB020B8209D00D96BBD /* Barcoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barcoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DD4AB320B8209D00D96BBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DD4AB820B8209D00D96BBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9328266E20EF91FA00426493 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9328266C20EF8CB100426493 /* SettingsViewController.swift */,
+				9328267520EF925A00426493 /* LabelTableViewCell.xib */,
+				9328267620EF925A00426493 /* LabelTableViewCell.swift */,
+				9328267920EF961E00426493 /* TextFieldTableViewCell.xib */,
+				9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		93DD4AA720B8209C00D96BBD = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +138,8 @@
 				93DD4AE220B825BA00D96BBD /* HomeViewController.swift */,
 				93DD4AE820B8263500D96BBD /* Account.swift */,
 				93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */,
+				9328266A20EF883400426493 /* HistoryTableViewCell.swift */,
+				9328266E20EF91FA00426493 /* Settings */,
 				93DD4AE120B820A700D96BBD /* Supporting Files */,
 			);
 			path = Barcoder;
@@ -139,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				93DD4ABA20B8209D00D96BBD /* Assets.xcassets */,
+				9328266820EF84D100426493 /* Colors.xcassets */,
 				93DD4ABC20B8209D00D96BBD /* LaunchScreen.storyboard */,
 				93DD4ABF20B8209D00D96BBD /* Info.plist */,
 			);
@@ -250,6 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DD4ABE20B8209D00D96BBD /* LaunchScreen.storyboard in Resources */,
+				9328267B20EF961E00426493 /* TextFieldTableViewCell.xib in Resources */,
+				9328267720EF925A00426493 /* LabelTableViewCell.xib in Resources */,
+				9328266920EF84D100426493 /* Colors.xcassets in Resources */,
 				93DD4ABB20B8209D00D96BBD /* Assets.xcassets in Resources */,
 				93DD4AB920B8209D00D96BBD /* Main.storyboard in Resources */,
 			);
@@ -278,10 +310,14 @@
 			files = (
 				93DD4AEB20B82A0100D96BBD /* BarcodeData.swift in Sources */,
 				93DD4AE920B8263500D96BBD /* Account.swift in Sources */,
+				9328266B20EF883400426493 /* HistoryTableViewCell.swift in Sources */,
 				93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */,
 				93DD4AE720B8260600D96BBD /* BarcodeViewController.swift in Sources */,
+				9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */,
 				93DD4AE320B825BA00D96BBD /* HomeViewController.swift in Sources */,
 				93DD4AE520B825E200D96BBD /* AccountDetailsViewController.swift in Sources */,
+				9328266D20EF8CB100426493 /* SettingsViewController.swift in Sources */,
+				9328267C20EF961E00426493 /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

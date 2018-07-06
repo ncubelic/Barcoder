@@ -24,4 +24,9 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        let settingsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let navVC = UINavigationController(rootViewController: settingsViewController)
+        present(navVC, animated: true, completion: nil)
+    }
 }

@@ -14,11 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupAppearance()
         return true
     }
-
 }
 
 extension AppDelegate {
@@ -29,6 +28,7 @@ extension AppDelegate {
         let light = UIColor(named: "GradientLight")!
         navBar.setBackgroundImage(applyNavigationGradient(colors: [dark, light]), for: .default)
         navBar.tintColor = .white
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navBar.isTranslucent = false
     }
     

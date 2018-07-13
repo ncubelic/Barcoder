@@ -14,6 +14,9 @@
 		9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267620EF925A00426493 /* LabelTableViewCell.swift */; };
 		9328267B20EF961E00426493 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9328267920EF961E00426493 /* TextFieldTableViewCell.xib */; };
 		9328267C20EF961E00426493 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */; };
+		934BC3E320F8961A00139A02 /* BTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934BC3E220F8961A00139A02 /* BTextField.swift */; };
+		934BC40720F8D1D100139A02 /* History.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 934BC40520F8D1D100139A02 /* History.xcdatamodeld */; };
+		934BC40B20F8D39500139A02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934BC40A20F8D39500139A02 /* CoreDataManager.swift */; };
 		93522AA820EFAA6D00C11CB7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93522AA720EFAA6D00C11CB7 /* GradientView.swift */; };
 		93522AAA20EFB32400C11CB7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93522AA920EFB32400C11CB7 /* HistoryViewController.swift */; };
 		93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AB320B8209D00D96BBD /* AppDelegate.swift */; };
@@ -54,6 +57,9 @@
 		9328267620EF925A00426493 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		9328267920EF961E00426493 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		9328267A20EF961E00426493 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		934BC3E220F8961A00139A02 /* BTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTextField.swift; sourceTree = "<group>"; };
+		934BC40620F8D1D100139A02 /* History.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = History.xcdatamodel; sourceTree = "<group>"; };
+		934BC40A20F8D39500139A02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		93522AA720EFAA6D00C11CB7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		93522AA920EFB32400C11CB7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		93DD4AB020B8209D00D96BBD /* Barcoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barcoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +118,25 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		934BC40820F8D22F00139A02 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				934BC40920F8D23A00139A02 /* Core Data */,
+				9328266A20EF883400426493 /* HistoryTableViewCell.swift */,
+				93522AA920EFB32400C11CB7 /* HistoryViewController.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		934BC40920F8D23A00139A02 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				934BC40520F8D1D100139A02 /* History.xcdatamodeld */,
+				934BC40A20F8D39500139A02 /* CoreDataManager.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		93DD4AA720B8209C00D96BBD = {
 			isa = PBXGroup;
 			children = (
@@ -142,11 +167,11 @@
 				93DD4AE220B825BA00D96BBD /* HomeViewController.swift */,
 				93DD4AE820B8263500D96BBD /* Account.swift */,
 				93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */,
-				9328266A20EF883400426493 /* HistoryTableViewCell.swift */,
-				93522AA920EFB32400C11CB7 /* HistoryViewController.swift */,
+				934BC40820F8D22F00139A02 /* History */,
 				93522AA720EFAA6D00C11CB7 /* GradientView.swift */,
 				9328266E20EF91FA00426493 /* Settings */,
 				93DD4AE120B820A700D96BBD /* Supporting Files */,
+				934BC3E220F8961A00139A02 /* BTextField.swift */,
 			);
 			path = Barcoder;
 			sourceTree = "<group>";
@@ -248,13 +273,16 @@
 				TargetAttributes = {
 					93DD4AAF20B8209D00D96BBD = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 					};
 					93DD4AC320B8209E00D96BBD = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 93DD4AAF20B8209D00D96BBD;
 					};
 					93DD4ACE20B8209E00D96BBD = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 93DD4AAF20B8209D00D96BBD;
 					};
 				};
@@ -317,14 +345,17 @@
 				93DD4AEB20B82A0100D96BBD /* BarcodeData.swift in Sources */,
 				93DD4AE920B8263500D96BBD /* Account.swift in Sources */,
 				93522AA820EFAA6D00C11CB7 /* GradientView.swift in Sources */,
+				934BC40B20F8D39500139A02 /* CoreDataManager.swift in Sources */,
 				93522AAA20EFB32400C11CB7 /* HistoryViewController.swift in Sources */,
 				9328266B20EF883400426493 /* HistoryTableViewCell.swift in Sources */,
 				93DD4AB420B8209D00D96BBD /* AppDelegate.swift in Sources */,
 				93DD4AE720B8260600D96BBD /* BarcodeViewController.swift in Sources */,
+				934BC3E320F8961A00139A02 /* BTextField.swift in Sources */,
 				9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */,
 				93DD4AE320B825BA00D96BBD /* HomeViewController.swift in Sources */,
 				93DD4AE520B825E200D96BBD /* AccountDetailsViewController.swift in Sources */,
 				9328266D20EF8CB100426493 /* SettingsViewController.swift in Sources */,
+				934BC40720F8D1D100139A02 /* History.xcdatamodeld in Sources */,
 				9328267C20EF961E00426493 /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,7 +538,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -525,7 +556,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -545,7 +576,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingemark.test.BarcoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barcoder.app/Barcoder";
 			};
@@ -566,7 +597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingemark.test.BarcoderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barcoder.app/Barcoder";
 			};
@@ -586,7 +617,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingemark.test.BarcoderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Barcoder;
 			};
@@ -606,7 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingemark.test.BarcoderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Barcoder;
 			};
@@ -652,6 +683,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		934BC40520F8D1D100139A02 /* History.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				934BC40620F8D1D100139A02 /* History.xcdatamodel */,
+			);
+			currentVersion = 934BC40620F8D1D100139A02 /* History.xcdatamodel */;
+			path = History.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 93DD4AA820B8209C00D96BBD /* Project object */;
 }

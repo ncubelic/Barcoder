@@ -13,7 +13,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var items: [BarcodeData] = [
-        BarcodeData(amount: "120,50", description: "Privatne svrhe")
+        BarcodeData(amount: "120,50 kn", description: "Privatne svrhe")
     ]
     
     override func viewDidLoad() {
@@ -54,6 +54,12 @@ extension HistoryViewController: UITableViewDelegate {
         
         let barcodeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
         barcodeViewController.barcodeDynamicData = items[indexPath.row]
+        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
         navigationController?.pushViewController(barcodeViewController, animated: true)
+        navigationController?.viewControllers.insert(homeVC, at: 1)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
     }
 }

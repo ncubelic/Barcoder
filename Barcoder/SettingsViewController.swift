@@ -22,7 +22,7 @@ struct Item {
 }
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var items: [Item] = [
@@ -37,20 +37,56 @@ class SettingsViewController: UIViewController {
     ]
     
     private var currentIndexPath: IndexPath?
+    private var account: Account?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
         tableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+        
+        if let data = UserDefaults.standard.object(forKey: "account") as? Data {
+            guard let acc = NSKeyedUnarchiver.unarchiveObject(with: data) as? Account else { return }
+            account = acc
+            fillData()
+        } else {
+            account = Account()
+        }
     }
-
+    
+    private func fillData() {
+        guard let account = account else { return }
+        items[0].value = account.currency
+        items[1].value = account.payeeName
+        items[2].value = account.payeeAddress
+        items[3].value = account.payeeCity
+        items[4].value = account.payeeIBAN
+        items[5].value = account.paymentModel
+        items[6].value = account.paymentReferenceNumber
+        items[7].value = account.paymentSomething
+        tableView.reloadData()
+    }
+    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        // TODO: implement save action
+        view.endEditing(true)
+        let currency = items[0].value
+        let payeeName = items[1].value
+        let address = items[2].value
+        let city = items[3].value
+        let iban = items[4].value
+        let model = items[5].value
+        let reference = items[6].value
+        let something = items[7].value
+        
+        let account = Account(currency: currency, payeeName: payeeName, payeeAddress: address, payeeCity: city, payeeIBAN: iban, paymentModel: model, referenceNumber: reference, something: something)
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: account)
+        UserDefaults.standard.set(data, forKey: "account")
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -74,6 +110,7 @@ extension SettingsViewController: UITableViewDataSource {
         case .textField:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
             cell.setup(with: item)
+            cell.textField.tag = indexPath.row
             return cell
         case .picker:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as! LabelTableViewCell
@@ -121,21 +158,19 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let currentIndexPath = currentIndexPath else { return }
-        items[currentIndexPath.row].value = textField.text ?? ""
+        items[textField.tag].value = textField.text ?? ""
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard
-            let currentIndexPath = currentIndexPath,
-            currentIndexPath.row < items.count - 1,
-            items[currentIndexPath.row + 1].type == .textField
+            textField.tag < items.count - 1,
+            items[textField.tag + 1].type == .textField
             else {
                 view.endEditing(true)
                 return false
         }
         
-        let nextIndex = currentIndexPath.row + 1
+        let nextIndex = textField.tag + 1
         let nextIndexPath = IndexPath(row: nextIndex, section: 0)
         let nextCell = tableView.cellForRow(at: nextIndexPath) as! TextFieldTableViewCell
         nextCell.beginInput(with: self)

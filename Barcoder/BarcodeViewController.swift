@@ -18,8 +18,14 @@ class BarcodeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //        let account = Account(currency: "HRK", payeeName: "Nikola Cubelic", payeeAddress: "Mladena Kerstnera 42", payeeCity: "10410 Velika Gorica", payeeIBAN: "HR0724070003206844371", paymentModel: "HR99", paymentReferenceNumber: "", paymentSomething: "")
-    let account = Account(currency: "HRK", payeeName: "Nikola Cubelic", payeeAddress: "Mladena Kerstnera 42", payeeCity: "10410 Velika Gorica", payeeIBAN: "HR0724070003206844371", paymentModel: "HR00", referenceNumber: "", something: "")
+    guard
+        let data = UserDefaults.standard.object(forKey: "account") as? Data,
+        let account = NSKeyedUnarchiver.unarchiveObject(with: data) as? Account
+        else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+    
     generateBarcode(with: account, dynamicData: barcodeDynamicData)
   }
   
@@ -49,26 +55,39 @@ class BarcodeViewController: UIViewController {
       if let output = filter.outputImage?.transformed(by: transform) {
         barcodeImage = UIImage(ciImage: output)
         barcodeImageView.image = UIImage(ciImage: output)
-        writeToFile(image: barcodeImage!)
       }
     }
   }
   
   @IBAction func shareAction(_ sender: Any) {
-    guard let barcodeImage = barcodeImage else { return }
+    guard
+        let barcodeImage = barcodeImage,
+        let barcodeCIImage = barcodeImage.ciImage
+        else { return }
+
+    let ciContext = CIContext()
+    guard let cgImage = ciContext.createCGImage(barcodeCIImage, from: barcodeCIImage.extent) else { return }
+
+    let barcodeUIImage = UIImage(cgImage: cgImage)
     
-    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-    let destinationPath = (documentsPath as NSString).appendingPathComponent("filename.jpg")
+    // text to share
+    let text = "Slikaj i plati:"
     
-    let url = URL(fileURLWithPath: destinationPath)
-    print(FileManager.default.fileExists(atPath: url.absoluteString))
+    // set up activity view controller
+    let objectsToShare: [Any] = [barcodeUIImage, text]
+    let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+    
+    
+    // present the view controller
+    self.present(activityViewController, animated: true, completion: nil)
   }
   
   func writeToFile(image: UIImage) {
     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
     let destinationPath = (documentsPath as NSString).appendingPathComponent("filename.jpg")
     
-    try? UIImageJPEGRepresentation(image, 1.0)?.write(to: URL(fileURLWithPath: destinationPath), options: .atomic)
+    try? image.jpegData(compressionQuality: 1.0)?.write(to: URL(fileURLWithPath: destinationPath), options: .atomic)
   }
 }
 
@@ -77,11 +96,15 @@ extension String {
   func formatForHRK() -> String {
     let base = self
     let count = base.count
-    var formatted = "0000000000000"
+    let formattedNumbersCount = 15
+    var formatterdString = ""
     
-    let index = formatted.index(formatted.endIndex, offsetBy: -(count))
-    formatted.replaceSubrange(index...index, with: base)
-    print(formatted)
-    return String(formatted)
+    repeat {
+      formatterdString.append("0")
+    } while formatterdString.count < formattedNumbersCount - count
+    
+    formatterdString.append(base)
+    
+    return String(formatterdString)
   }
 }

@@ -10,19 +10,32 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var amountTextField: BTextField!
+    @IBOutlet weak var descriptionTextField: BTextField!
+    
+    private var currentAmount: NSNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        amountTextField.textAlignment = .right
+        descriptionTextField.textAlignment = .right
+        amountTextField.addTarget(self, action: #selector(amountDidChange(_:)), for: .editingChanged)
+    }
+    
+    @objc func amountDidChange(_ textField: UITextField) {
+        if let amountString = textField.text {
+            textField.text = currencyInputFormatting(amountString)
+        }
     }
     
     @IBAction func generateBarcodeAction(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
         
         if isFormValid() {
-            guard let amount = amountTextField.text, let description = descriptionTextField.text else { return }
-            vc.barcodeDynamicData = BarcodeData(amount: amount, description: description)
+            guard let _ = amountTextField.text, let description = descriptionTextField.text else { return }
+            let amountInLipas = Int(currentAmount.floatValue * 100)
+            vc.barcodeDynamicData = BarcodeData(amount: String(amountInLipas), description: description)
             navigationController?.pushViewController(vc, animated: true)
             view.endEditing(true)
         }
@@ -53,5 +66,32 @@ extension HomeViewController {
         let alert = UIAlertController(title: "Greška", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    // formatting text for currency textField
+    private func currencyInputFormatting(_ string: String) -> String {
+        
+        var number: NSNumber
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = "kn"
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        
+        var amountWithPrefix = string
+        
+        // remove from String: "kn", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, string.count), withTemplate: "")
+        
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 100))
+        
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+        currentAmount = number
+        return formatter.string(from: number)!
     }
 }

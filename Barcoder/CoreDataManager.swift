@@ -33,8 +33,24 @@ class CoreDataManager {
         return container
     }()
     
-    func saveBarcode() {
-        
+    func saveBarcode(historyModel: HistoryModel) {
+        let history = History(context: persistentContainer.viewContext)
+        history.amount = historyModel.amount
+        history.barcodeData = historyModel.barcodeData
+        history.date = historyModel.date
+        history.paymentDescription = historyModel.paymentDescription
+        saveContext()
+    }
+    
+    func getHistory() -> [History] {
+        let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+        guard let result = try? persistentContainer.viewContext.fetch(fetchRequest) else { return [] }
+        return result
+    }
+    
+    func deleteHistoryItem(_ history: History) {
+        persistentContainer.viewContext.delete(history)
+        saveContext()
     }
     
     func saveContext () {

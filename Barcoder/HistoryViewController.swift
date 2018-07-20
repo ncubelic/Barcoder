@@ -12,9 +12,9 @@ class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var items: [BarcodeData] = [
-        BarcodeData(amount: "120,50 kn", description: "Privatne svrhe")
-    ]
+    var history: [History] = []
+    
+    private var coreDataManager = CoreDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,12 @@ class HistoryViewController: UIViewController {
         
         let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
         navigationController?.pushViewController(homeViewController, animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        history = coreDataManager.getHistory()
     }
 
 }
@@ -33,11 +39,11 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return history.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = items[indexPath.row]
+        let item = history[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
         cell.setup(with: item)
         return cell
@@ -53,7 +59,11 @@ extension HistoryViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let barcodeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
-        barcodeViewController.barcodeDynamicData = items[indexPath.row]
+        
+        let historyItem = history[indexPath.row]
+        let barcodeDynamicData = BarcodeData(amount: String(historyItem.amount), description: historyItem.paymentDescription ?? "")
+        barcodeViewController.barcodeDynamicData = barcodeDynamicData
+        barcodeViewController.type = .edit
         let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
         navigationController?.pushViewController(barcodeViewController, animated: true)
         navigationController?.viewControllers.insert(homeVC, at: 1)
@@ -61,5 +71,13 @@ extension HistoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            coreDataManager.deleteHistoryItem(history[indexPath.row])
+            history.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+        }
     }
 }

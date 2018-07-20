@@ -14,12 +14,23 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var barcodeDescriptionLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
+    let numberFormatter = NumberFormatter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        numberFormatter.currencySymbol = "Kn"
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.alwaysShowsDecimalSeparator = true
+        numberFormatter.locale = Locale(identifier: "hr_HR")
     }
 
-    func setup(with barcodeData: BarcodeData) {
-        barcodeDescriptionLabel.text = barcodeData.description
-        amountLabel.text = barcodeData.amount
+    func setup(with historyItem: History) {
+        barcodeDescriptionLabel.text = historyItem.paymentDescription
+        amountLabel.text = numberFormatter.string(from: NSNumber(value: historyItem.amount))
+        if let date = historyItem.date {
+            dateLabel.text = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
+        }
     }
 }

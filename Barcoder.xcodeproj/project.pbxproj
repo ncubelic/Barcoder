@@ -30,6 +30,8 @@
 		93DD4AE720B8260600D96BBD /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AE620B8260600D96BBD /* BarcodeViewController.swift */; };
 		93DD4AE920B8263500D96BBD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AE820B8263500D96BBD /* Account.swift */; };
 		93DD4AEB20B82A0100D96BBD /* BarcodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */; };
+		93DDE8822101EC98000C072B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDE8812101EC98000C072B /* History.swift */; };
+		93DDE8842101F7D9000C072B /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDE8832101F7D9000C072B /* HistoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		93DD4AE620B8260600D96BBD /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		93DD4AE820B8263500D96BBD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeData.swift; sourceTree = "<group>"; };
+		93DDE8812101EC98000C072B /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		93DDE8832101F7D9000C072B /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 			children = (
 				934BC40520F8D1D100139A02 /* History.xcdatamodeld */,
 				934BC40A20F8D39500139A02 /* CoreDataManager.swift */,
+				93DDE8812101EC98000C072B /* History.swift */,
+				93DDE8832101F7D9000C072B /* HistoryModel.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DDE8822101EC98000C072B /* History.swift in Sources */,
 				93DD4AEB20B82A0100D96BBD /* BarcodeData.swift in Sources */,
 				93DD4AE920B8263500D96BBD /* Account.swift in Sources */,
 				93522AA820EFAA6D00C11CB7 /* GradientView.swift in Sources */,
@@ -353,6 +360,7 @@
 				934BC3E320F8961A00139A02 /* BTextField.swift in Sources */,
 				9328267820EF925A00426493 /* LabelTableViewCell.swift in Sources */,
 				93DD4AE320B825BA00D96BBD /* HomeViewController.swift in Sources */,
+				93DDE8842101F7D9000C072B /* HistoryModel.swift in Sources */,
 				93DD4AE520B825E200D96BBD /* AccountDetailsViewController.swift in Sources */,
 				9328266D20EF8CB100426493 /* SettingsViewController.swift in Sources */,
 				934BC40720F8D1D100139A02 /* History.xcdatamodeld in Sources */,
@@ -538,7 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -556,7 +564,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

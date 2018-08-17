@@ -20,17 +20,12 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        
-        let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
-        navigationController?.pushViewController(homeViewController, animated: false)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         history = coreDataManager.getHistory()
     }
-
+    
+    @IBAction func closeHistory(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 
@@ -64,9 +59,8 @@ extension HistoryViewController: UITableViewDelegate {
         let barcodeDynamicData = BarcodeData(amount: String(historyItem.amount), description: historyItem.paymentDescription ?? "")
         barcodeViewController.barcodeDynamicData = barcodeDynamicData
         barcodeViewController.type = .edit
-        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
+
         navigationController?.pushViewController(barcodeViewController, animated: true)
-        navigationController?.viewControllers.insert(homeVC, at: 1)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

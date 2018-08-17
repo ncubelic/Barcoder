@@ -30,9 +30,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func generateBarcodeAction(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
-        
         if isFormValid() {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarcodeViewController") as! BarcodeViewController
             guard let _ = amountTextField.text, let description = descriptionTextField.text else { return }
             let amountInLipas = Int(currentAmount.floatValue * 100)
             vc.barcodeDynamicData = BarcodeData(amount: String(amountInLipas), description: description)
@@ -46,6 +45,12 @@ class HomeViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: settingsViewController)
         present(navVC, animated: true, completion: nil)
         view.endEditing(true)
+    }
+    
+    @IBAction func historyAction(_ sender: Any) {
+        let historyVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoryViewController")
+        let navVC = UINavigationController(rootViewController: historyVC)
+        present(navVC, animated: true, completion: nil)
     }
 }
 

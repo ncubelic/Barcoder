@@ -54,7 +54,7 @@ class BarcodeViewController: UIViewController {
             "COST\n" +
         "\(dynamicData.description)\n"
         print(string)
-        let data = string.data(using: String.Encoding.ascii)
+        let data = string.data(using: String.Encoding.utf8)
         
         if let filter = CIFilter(name: "CIPDF417BarcodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")

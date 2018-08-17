@@ -21,6 +21,11 @@ struct Item {
     var type: ItemType
 }
 
+struct ValidationResult {
+    var isValid: Bool
+    var message: String?
+}
+
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -162,6 +167,13 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let validationResult = validate(textField)
+        
+        guard validationResult.isValid else {
+            showAlert(with: validationResult.message)
+            return false
+        }
+        
         guard
             textField.tag < items.count - 1,
             items[textField.tag + 1].type == .textField
@@ -176,5 +188,58 @@ extension SettingsViewController: UITextFieldDelegate {
         nextCell.beginInput(with: self)
         self.currentIndexPath = nextIndexPath
         return true
+    }
+    
+    private func showAlert(with message: String?) {
+        let alert = UIAlertController(title: "Greška", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func validate(_ textField: UITextField) -> ValidationResult {
+        
+        var result = ValidationResult(isValid: false, message: nil)
+        
+        switch textField.tag {
+        case 1:
+            // vlasnik racuna
+            result.message = "Vlasnik računa je obavezno polje (MAX. 25 znakova)"
+            guard let text = textField.text, !text.isEmpty else { return result }
+            result.isValid = (text.count <= 25 && text.count > 0)
+        case 2:
+            // adresa
+            guard let text = textField.text else {
+                return result
+            }
+            result.isValid = text.count <= 25
+        case 3:
+            // postanski broj i mjesto
+            guard let text = textField.text else {
+                return result
+            }
+            result.isValid = text.count <= 27
+        case 4:
+            // iban
+            result.message = "IBAN je obavezno polje (MAX. 21 znakova)"
+            guard let text = textField.text, !text.isEmpty else { return result }
+            result.isValid = (text.count <= 21 && text.count > 0)
+        case 6:
+            // poziv na broj
+            // <= 22 znaka
+            guard let text = textField.text else {
+                return result
+            }
+            result.isValid = text.count <= 22
+        case 7:
+            // sifra namjene
+            // <=4 znaka
+            guard let text = textField.text else {
+                return result
+            }
+            result.isValid = text.count <= 4
+        default:
+            return result
+        }
+        return result
     }
 }

@@ -23,6 +23,7 @@ class TextFieldTableViewCell: UITableViewCell {
         leftLabel.text = item.title
         textField.placeholder = item.placeholder
         textField.text = item.value
+        textField.keyboardAppearance = .dark
     }
     
     func beginInput(with delegate: UITextFieldDelegate) {

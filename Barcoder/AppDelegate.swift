@@ -3,7 +3,7 @@
 //  Barcoder
 //
 //  Created by Nikola on 25/05/2018.
-//  Copyright © 2018 Ingemark. All rights reserved.
+//  Copyright © 2018 Nikola. All rights reserved.
 //
 
 import UIKit
@@ -26,6 +26,7 @@ extension AppDelegate {
         let dark = UIColor(named: "GradientDark")!
         let light = UIColor(named: "GradientLight")!
         navBar.setBackgroundImage(applyNavigationGradient(colors: [dark, light]), for: .default)
+        navBar.shadowImage = UIImage()
         navBar.tintColor = .white
         navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navBar.isTranslucent = false

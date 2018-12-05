@@ -3,7 +3,7 @@
 //  Barcoder
 //
 //  Created by Nikola on 13/07/2018.
-//  Copyright © 2018 Ingemark. All rights reserved.
+//  Copyright © 2018 Nikola. All rights reserved.
 //
 
 import UIKit

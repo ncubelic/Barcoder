@@ -108,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DF0091B21B86F6300B228A6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				93522AA720EFAA6D00C11CB7 /* GradientView.swift */,
+				934BC3E220F8961A00139A02 /* BTextField.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		9328266E20EF91FA00426493 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,11 +179,10 @@
 				93DD4AE220B825BA00D96BBD /* HomeViewController.swift */,
 				93DD4AE820B8263500D96BBD /* Account.swift */,
 				93DD4AEA20B82A0100D96BBD /* BarcodeData.swift */,
+				2DF0091B21B86F6300B228A6 /* Common */,
 				934BC40820F8D22F00139A02 /* History */,
-				93522AA720EFAA6D00C11CB7 /* GradientView.swift */,
 				9328266E20EF91FA00426493 /* Settings */,
 				93DD4AE120B820A700D96BBD /* Supporting Files */,
-				934BC3E220F8961A00139A02 /* BTextField.swift */,
 			);
 			path = Barcoder;
 			sourceTree = "<group>";
@@ -534,13 +542,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LG45P8D7VF;
+				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				INFOPLIST_FILE = Barcoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cubelic.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,13 +560,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LG45P8D7VF;
+				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				INFOPLIST_FILE = Barcoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hr.lioncode.barcoder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cubelic.barcoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

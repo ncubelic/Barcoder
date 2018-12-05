@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZ8-H6-heU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZ8-H6-heU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +38,7 @@
                                     <action selector="generateBarcodeAction:" destination="X9E-DN-TS3" eventType="touchUpInside" id="WqC-nF-UO4"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Payment description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqv-ND-ydC" customClass="BTextField" customModule="Barcoder" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Opis plaćanja" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqv-ND-ydC" customClass="BTextField" customModule="Barcoder" customModuleProvider="target">
                                 <rect key="frame" x="20" y="251" width="335" height="44"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -63,13 +62,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oZR-Kf-hbY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Barcoder" id="MH6-23-Ged">
-                        <barButtonItem key="leftBarButtonItem" title="History" id="Mi8-KS-WQp">
+                    <navigationItem key="navigationItem" title="Barcoder" largeTitleDisplayMode="always" id="MH6-23-Ged">
+                        <barButtonItem key="leftBarButtonItem" title="Povijest" id="Mi8-KS-WQp">
                             <connections>
                                 <action selector="historyAction:" destination="X9E-DN-TS3" id="t0h-ND-rdu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Jbb-hn-ICV">
+                        <barButtonItem key="rightBarButtonItem" title="Uredi" id="Jbb-hn-ICV">
                             <connections>
                                 <action selector="settingsAction:" destination="X9E-DN-TS3" id="6RW-hd-c4K"/>
                             </connections>
@@ -219,12 +218,12 @@
                         <viewLayoutGuide key="safeArea" id="mUJ-xp-6na"/>
                     </view>
                     <navigationItem key="navigationItem" title="Podaci o računu" id="Zj2-NG-uti">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eV1-Oe-jmS">
+                        <barButtonItem key="leftBarButtonItem" title="Odustani" id="eV1-Oe-jmS">
                             <connections>
                                 <action selector="cancelAction:" destination="js9-vQ-73w" id="o2T-Jq-TfR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tAq-q3-b4W">
+                        <barButtonItem key="rightBarButtonItem" title="Spremi" id="tAq-q3-b4W">
                             <connections>
                                 <action selector="saveAction:" destination="js9-vQ-73w" id="qep-1y-e6N"/>
                             </connections>
@@ -246,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="3964" y="120.98950524737631"/>
         </scene>
-        <!--Settings-->
+        <!--Postavke-->
         <scene sceneID="sdv-pN-YI9">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="fgj-1V-0SK" customClass="SettingsViewController" customModule="Barcoder" customModuleProvider="target" sceneMemberID="viewController">
@@ -282,13 +281,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2kM-xC-QsD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="Jk9-Te-i6s">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="X9Z-I2-QfK">
+                    <navigationItem key="navigationItem" title="Postavke" id="Jk9-Te-i6s">
+                        <barButtonItem key="leftBarButtonItem" title="Odustani" id="X9Z-I2-QfK">
                             <connections>
                                 <action selector="cancelAction:" destination="fgj-1V-0SK" id="esL-x1-CgW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="4ef-kl-7pq">
+                        <barButtonItem key="rightBarButtonItem" title="Spremi" id="4ef-kl-7pq">
                             <connections>
                                 <action selector="saveAction:" destination="fgj-1V-0SK" id="7ej-z6-NJg"/>
                             </connections>
@@ -303,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="3263.1999999999998" y="120.98950524737631"/>
         </scene>
-        <!--History-->
+        <!--Povijest-->
         <scene sceneID="WFK-0M-2qM">
             <objects>
                 <viewController storyboardIdentifier="HistoryViewController" id="3tf-WH-ev3" customClass="HistoryViewController" customModule="Barcoder" customModuleProvider="target" sceneMemberID="viewController">
@@ -374,7 +373,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LY5-9T-bnc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="History" id="Ufx-C9-lM0">
+                    <navigationItem key="navigationItem" title="Povijest" id="Ufx-C9-lM0">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="d4j-sI-HpV">
                             <connections>
                                 <action selector="closeHistory:" destination="3tf-WH-ev3" id="zBr-gk-G4J"/>

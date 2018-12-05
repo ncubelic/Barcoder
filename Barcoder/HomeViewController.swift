@@ -3,7 +3,7 @@
 //  Barcoder
 //
 //  Created by Nikola on 25/05/2018.
-//  Copyright © 2018 Ingemark. All rights reserved.
+//  Copyright © 2018 Nikola. All rights reserved.
 //
 
 import UIKit
@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.navigationBar.prefersLargeTitles = true
         amountTextField.textAlignment = .right
         descriptionTextField.textAlignment = .right
         amountTextField.addTarget(self, action: #selector(amountDidChange(_:)), for: .editingChanged)
@@ -55,6 +56,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     private func isFormValid() -> Bool {
         guard

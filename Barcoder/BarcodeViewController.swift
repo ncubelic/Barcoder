@@ -3,7 +3,7 @@
 //  Barcoder
 //
 //  Created by Nikola on 25/05/2018.
-//  Copyright © 2018 Nikola. All rights reserved.
+//  Copyright © 2018 Me All rights reserved.
 //
 
 import UIKit
@@ -56,18 +56,17 @@ class BarcodeViewController: UIViewController {
         print(string)
         let data = string.data(using: String.Encoding.utf8)
         
-        if let filter = CIFilter(name: "CIPDF417BarcodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-            
-            if let output = filter.outputImage?.transformed(by: transform) {
-                barcodeImage = UIImage(ciImage: output)
-                barcodeImageView.image = UIImage(ciImage: output)
-                
-                if type == .new {
-                    saveToHistory(string)                    
-                }
-            }
+        guard let filter = CIFilter(name: "CIPDF417BarcodeGenerator") else { return }
+        filter.setValue(data, forKey: "inputMessage")
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        
+        guard let output = filter.outputImage?.transformed(by: transform) else { return }
+        
+        barcodeImage = UIImage(ciImage: output)
+        barcodeImageView.image = UIImage(ciImage: output)
+        
+        if type == .new {
+            saveToHistory(string)
         }
     }
     

@@ -3,7 +3,7 @@
 //  Barcoder
 //
 //  Created by Nikola on 25/05/2018.
-//  Copyright © 2018 Nikola. All rights reserved.
+//  Copyright © 2018 Me All rights reserved.
 //
 
 import UIKit
@@ -77,7 +77,7 @@ extension HomeViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // formatting text for currency textField
+    /// Formatting text for currency textField
     private func currencyInputFormatting(_ string: String) -> String {
         
         var number: NSNumber

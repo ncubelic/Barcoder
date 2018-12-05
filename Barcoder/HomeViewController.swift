@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.navigationBar.prefersLargeTitles = true
         amountTextField.textAlignment = .right
         descriptionTextField.textAlignment = .right
         amountTextField.addTarget(self, action: #selector(amountDidChange(_:)), for: .editingChanged)
